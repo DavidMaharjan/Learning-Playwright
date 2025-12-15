@@ -9,8 +9,8 @@ def test_user_login(page: Page) :
     page.goto("https://uat.cyberensic.ai/sign-in")
     email=page.get_by_role("textbox", name="Enter your email (eg, john@")
     password=page.get_by_role("textbox", name="Enter your password")
-    email.fill("maharjandavid4@gmail.com")
-    password.fill("Fire@hole123")
+    email.fill("")
+    password.fill("")
     page.get_by_role("button", name="Sign In").click()
     expect(page.get_by_text("Password is incorrect. Try again, or use another method.")).to_be_visible()
     
