@@ -25,4 +25,11 @@ def test_label_placeholder(page:Page):
 
 def test_xpath(page:Page):
     page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    expect(page.get_by_alt_text("company-branding")).to_be_visible
+    username=page.locator("//input[@name='username']")
+    password=page.locator("//input[@name='password']")
+    username.fill("Admin")
+    password.fill("admin123")
+    page.locator("//button[@type='submit']").click()
+    expect(page.locator("//h6[text()='Dashboard']")).to_be_visible()
     
